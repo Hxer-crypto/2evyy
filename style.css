@@ -582,3 +582,18 @@ footer .footer-flor{ font-size: 26px; margin-bottom: 10px; }
 .hair-strand{
   position:absolute; pointer-events:none; opacity:0.35;
 }
+
+/* ============ AJUSTES PARA CELULAR ============ */
+@media (max-width: 780px){
+  /* menos "peso" gráfico: sombras/desfoques pesados custam caro em celulares
+     e podiam travar a rolagem bem na hora de ver as fotos */
+  .floating-lantern{ filter: none; }
+  .flower-trail{ display:none; } /* trilha do cursor é só para mouse (ver script.js) */
+  .tl-item{ backdrop-filter: none; }
+  #capa .flor-grande{ filter: none; }
+  #abrir-livro{ box-shadow: none; }
+  #music-btn{ animation: none; box-shadow: 0 0 12px rgba(244,185,66,0.45); }
+
+  .foto-card{ box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+  .foto-card:hover{ box-shadow: 0 6px 16px rgba(244,185,66,0.35); }
+}

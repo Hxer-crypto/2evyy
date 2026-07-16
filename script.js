@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 1. Céu: estrelas + lanternas flutuantes ---------- */
   const sky = document.getElementById('sky-layer');
+  const telaPequena = window.innerWidth < 780;
+  const qtdEstrelas = telaPequena ? 35 : 70;
+  const qtdLanternas = telaPequena ? 7 : 14;
 
-  for (let i = 0; i < 70; i++) {
+  for (let i = 0; i < qtdEstrelas; i++) {
     const star = document.createElement('div');
     star.className = 'star';
     const size = Math.random() * 2 + 1;
@@ -31,22 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
     lantern.style.transform = `scale(${scale})`;
     sky.appendChild(lantern);
   }
-  for (let i = 0; i < 14; i++) criarLanterna();
+  for (let i = 0; i < qtdLanternas; i++) criarLanterna();
 
   /* ---------- 2. Rastro de flor mágica no cursor ---------- */
-  let lastTrail = 0;
-  window.addEventListener('pointermove', (e) => {
-    const now = Date.now();
-    if (now - lastTrail < 60) return;
-    lastTrail = now;
-    const f = document.createElement('div');
-    f.className = 'flower-trail';
-    f.textContent = Math.random() > 0.5 ? '✿' : '🌸';
-    f.style.left = e.clientX + 'px';
-    f.style.top = e.clientY + 'px';
-    document.body.appendChild(f);
-    setTimeout(() => f.remove(), 900);
-  });
+  /* Só ativa em dispositivos com mouse de verdade (pointer: fine).
+     Em celular/tablet isso ficava disparando durante o toque/rolagem
+     e cobria as fotos com florzinhas — por isso "bugava" no celular. */
+  const temMouse = window.matchMedia('(pointer: fine)').matches;
+  if (temMouse) {
+    let lastTrail = 0;
+    window.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      if (now - lastTrail < 60) return;
+      lastTrail = now;
+      const f = document.createElement('div');
+      f.className = 'flower-trail';
+      f.textContent = Math.random() > 0.5 ? '✿' : '🌸';
+      f.style.left = e.clientX + 'px';
+      f.style.top = e.clientY + 'px';
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 900);
+    });
+  }
 
   /* ---------- 3. Capa: abrir o livro ---------- */
   const abrirBtn = document.getElementById('abrir-livro');
@@ -91,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- 4. Pascal — indicador de progresso do scroll ---------- */
   const pascalFill = document.getElementById('pascal-fill');
   const pascal = document.getElementById('pascal');
-  const emojisPascal = ['🦎','🦎','🦎'];
 
   function atualizarPascal() {
     const scrollTop = window.scrollY;
@@ -262,8 +270,5 @@ document.addEventListener('DOMContentLoaded', () => {
     lancarConfete(90);
     setTimeout(() => revelado.classList.add('show'), 350);
   });
-
-  /* ---------- 10. Efeito de digitação na carta ---------- */
-  // (deixado como fade-in via IntersectionObserver acima, mais leve e acessível)
 
 });
