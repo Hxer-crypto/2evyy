@@ -1,0 +1,81 @@
+💛 SITE "2 MESES ILUMINANDO MINHA VIDA" — tema Enrolados 💛
+============================================================
+
+Como abrir o site
+------------------
+Opção mais simples: dê duplo clique em "index.html" — ele abre no navegador.
+Se a música de fundo não tocar por causa de bloqueio do navegador,
+use o servidor local: rode "python3 servidor.py" nesta pasta e abra
+o endereço http://localhost:8000 que aparecer no terminal.
+
+
+1) TROCAR AS FOTOS (o mais importante!)
+----------------------------------------
+Dentro da pasta "images" tem 15 imagens de placeholder: foto1.jpg até foto15.jpg.
+Substitua cada uma pela foto real de vocês, mantendo EXATAMENTE o mesmo nome
+de arquivo (foto1.jpg, foto2.jpg, ...). Formato JPG ou PNG funciona (se usar
+PNG, troque também a extensão dentro do index.html, na parte da galeria).
+
+Dica: fotos no formato retrato (vertical) ficam melhores no layout.
+
+Para o quebra-cabeça, troque "images/puzzle.jpg" pela foto favorita de
+vocês dois — de preferência uma foto quadrada ou com o rosto bem centralizado,
+porque ela será cortada em 9 pedaços.
+
+
+2) ADICIONAR A MÚSICA
+----------------------
+Coloque um arquivo de música (mp3) na pasta "audio" com o nome "musica.mp3".
+Sugestão: uma música que tenha significado para vocês dois, ou uma trilha
+instrumental inspirada em Enrolados. Por direitos autorais, não incluí
+nenhuma música pronta — use um arquivo que vocês já possuam legalmente.
+
+
+3) EDITAR OS TEXTOS
+---------------------
+Abra o arquivo "index.html" em qualquer editor de texto (Bloco de Notas,
+VS Code, etc). Procure pelos textos marcados com "Editar:" — são os
+trechos que sugiro personalizar com a história de vocês:
+
+ - [Nome dela] e [Seu nome] -> aparecem várias vezes, substitua pelos
+   nomes reais (use Ctrl+H / "localizar e substituir" para trocar todos
+   de uma vez).
+ - Seção "Nossa Pequena Grande História" (id="historia") -> 5 cartões de
+   linha do tempo com "Editar:" — conte os momentos reais de vocês.
+ - Seção "Uma Carta Pra Você" (id="carta") -> o texto da carta de amor.
+   Já deixei uma carta pronta, mas fica ainda mais especial se você
+   reescrever com suas próprias palavras.
+ - Seção "Uma Oração Por Nós" (id="oracao") -> já está pronta, mas pode
+   ajustar como quiser.
+ - Legendas das fotos: em cada foto da galeria tem um atributo
+   data-legenda="..." e um <span class="legenda">...</span> — troque
+   pelo texto que quiser mostrar.
+ - Kit de cremes (seção "presente"): troque "Nutrição Dourada",
+   "Brilho de Lanterna" e "Flor Mágica" pelos nomes reais dos produtos
+   que você vai dar.
+
+
+4) O QUE TEM NO SITE
+----------------------
+ - Capa com efeito de "abrir o livro"
+ - Céu com estrelas e lanternas flutuantes animadas em toda a página
+ - Rastro de florzinhas mágicas seguindo o cursor/dedo
+ - Pascal (camaleão) na lateral marcando o progresso da leitura
+ - Linha do tempo da relação
+ - Galeria com 15 fotos e efeito de lightbox (clique para ampliar)
+ - Quebra-cabeça deslizante 3x3 com uma foto de vocês
+ - Carta de amor
+ - Oração
+ - Revelação animada do presente (kit de 3 cremes) com confete
+ - Botão de música flutuante
+ - Totalmente responsivo (funciona bem no celular)
+
+
+5) COMO ENVIAR PARA ELA
+-------------------------
+- Mais simples: compacte a pasta inteira em um .zip e envie por WhatsApp/
+  e-mail, avisando pra extrair tudo antes de abrir o index.html.
+- Mais bonito: hospede grátis em serviços como Netlify Drop ou Vercel
+  (basta arrastar a pasta) e envie um link só para ela clicar.
+
+Feito com carinho para comemorar os seus 2 meses. Boa sorte! 💛🏮✿
